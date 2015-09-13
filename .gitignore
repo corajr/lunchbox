@@ -1,6 +1,8 @@
 *.py[co]
 *.sw[op]
 
+npm-debug.log
+
 # Packages
 *.egg
 *.egg-info

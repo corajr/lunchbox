@@ -286,10 +286,8 @@ canvas {
     .side {
         position: absolute;
         left: 0;
-        bottom: 0;
+        top: 0;
         height: @sidebar-width;
-        transform-origin: 0 0;
-        transform: rotate(-90deg);
 
         .wordmark {
             color: black;
@@ -309,11 +307,20 @@ canvas {
         margin: 0;
         font-size: 46px;
         background: @bg-color;
-        background-image: @logo-path;
+        // background-image: @logo-path;
         background-repeat: no-repeat;
         background-size: @logo-sq-width @logo-sq-height;
         width: @logo-sq-width;
         height: @logo-sq-height;
+
+        & > svg {
+            position: absolute;
+            left: 0;
+            top: 0;
+            margin: 0;
+            width: @logo-16x9-width;
+            height: @logo-16x9-height;
+        }
 
         .sixteen-by-nine& {
             background-size: @logo-16x9-width @logo-16x9-height;

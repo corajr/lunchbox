@@ -12,7 +12,7 @@ var $logoWrapper = null;
 
 var quotes = [
     {
-        "quote": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse egestas mauris euismod tortor eleifend blandit. Cras semper ex felis, nec tempus tortor volutpat in.",
+        "quote": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse egestas mauris euismod tortor eleifend blandit. Cras semper ex felis, nec tempus tortor volutpat.",
         "source": "Duis Sollicitudin",
         "size": 32,
     },
@@ -43,15 +43,11 @@ function processText() {
         var rawText = $.trim($(this).html());
         $(this).html(smarten(rawText)).find('br').remove();
     });
+
+    generateMark();
 }
 
 function saveImage() {
-    // first check if the quote actually fits
-    if (($source.offset().top + $source.height()) > $logoWrapper.offset().top) {
-        alert("Your quote doesn't quite fit. Shorten the text or choose a smaller font-size.");
-        return;
-    }
-
     // don't print placeholder text if source is empty
     if ($source.text() === '') {
         alert("A source is required.");
@@ -84,7 +80,8 @@ function saveImage() {
 
         $('#download').attr('href', strDataURI).attr('target', '_blank');
         $('#download').trigger('click');
-      }
+      },
+      letterRendering: true,
     });
 }
 
@@ -96,7 +93,7 @@ function adjustFontSize(size) {
     };
 }
 
-$(function() {
+var main = function() {
     $text = $('.poster blockquote p, .source');
     $save = $('#save');
     $poster = $('.poster');
@@ -116,6 +113,7 @@ $(function() {
     $('blockquote p').text(quote.quote);
     $source.html('&mdash;&thinsp;' + quote.source);
     processText();
+
 
     $save.on('click', saveImage);
 
@@ -156,11 +154,11 @@ $(function() {
     });
 
     // // This event is interfering with the medium editor in some browsers
-    // $('blockquote').on('keyup', function(){
+    $('blockquote').on('keyup', function(){
 
     //     console.log($(this)[0].selectionStart);
-    //     process_text();
-    // });
+        processText();
+    });
 
 
     var quoteEl = document.querySelectorAll('.poster blockquote');
@@ -175,4 +173,6 @@ $(function() {
         disableToolbar: true,
         placeholder: 'Type your quote source here'
     });
-});
+};
+
+fetch_mark(main);

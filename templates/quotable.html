@@ -10,8 +10,8 @@
     <div class="poster-wrapper">
         <div class="poster quote poster-news sixteen-by-nine">
 			<div class="side">
-				<p class="wordmark">AAS<span>21</span></p>
 				<p class="logo-wrapper"></p>
+				<img src="../img/aas21.svg"/>
 			</div>
 
             <blockquote><p></p></blockquote>
@@ -62,6 +62,8 @@
 {% block extra_foot_js %}
 {{ JS.push('js/lib/html2canvas.js') }}
 {{ JS.push('js/lib/medium-editor.min.js') }}
+{{ JS.push('js/lib/seedrandom.min.js') }}
+{{ JS.push('js/lib/brandmark.js') }}
 {{ JS.push('js/quotable.js') }}
 {{ JS.render('js/quotable.min.js') }}
 {% endblock extra_foot_js %}
