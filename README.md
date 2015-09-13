@@ -50,13 +50,15 @@ What's in here?
 Quick Start
 -------------
 
-Bootstrap the project by forking this repo and installing the following:
+Install the following:
 
 ```
-mkvirtualenv lunchbox
-cd lunchbox
+pyenv install 2.7.10
+pyenv global 2.7.10
+pyenv virtualenv lunchbox
+cd lunchbox/
+pyenv local lunchbox
 pip install -r requirements.txt
-npm install
 ```
 
 Then run the app:
