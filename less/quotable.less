@@ -140,7 +140,7 @@ canvas {
     margin: @line-height;
     position: relative;
     padding: @padding * 2;
-    font-size: @base-font-size * 5;
+    font-size: @base-font-size * 3;
     line-height: 1 !important;
     overflow: hidden;
     color: @text-color;
@@ -175,14 +175,14 @@ canvas {
         }
 
         blockquote {
-            margin-bottom: 20px;
+            margin: 15px 0 20px 50px;
         }
 
         .logo-wrapper {
             padding: @padding;
 
             img {
-                width: 150px;
+
             }
 
             .poster-music& {
@@ -190,8 +190,14 @@ canvas {
             }
         }
 
+        .side img {
+            width: 75px;
+            display: block;
+        }
+
         p.source {
-            font-size: @base-font-size * 1.3;
+            font-size: @base-font-size * 1.5;
+            margin-left: 50px;
         }
 
         .show-credit {
@@ -218,7 +224,7 @@ canvas {
 
     blockquote {
         padding: 0;
-        margin: 0 0 @line-height * 2;
+        margin: 0;
         border-left: none;
         font-size: inherit;
         line-height: 100%;
@@ -285,14 +291,15 @@ canvas {
 
     .side {
         position: absolute;
-        left: 0;
-        top: 0;
+        left: 25px;
+        top: 30px;
         height: @sidebar-width;
 
         .wordmark {
             color: black;
             font-size: 36px;
             display: inline-block;
+            width: 64px;
 
             & > span {
                 color: @text-color;
@@ -318,8 +325,8 @@ canvas {
             left: 0;
             top: 0;
             margin: 0;
-            width: @logo-16x9-width;
-            height: @logo-16x9-height;
+            width: 75px;
+            height: 75px;
         }
 
         .sixteen-by-nine& {
