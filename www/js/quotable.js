@@ -81,6 +81,8 @@ function saveImage() {
         $('#download').attr('href', strDataURI).attr('target', '_blank');
         $('#download').trigger('click');
       },
+      width: 640,
+      height: 480,
       letterRendering: true,
     });
 }
