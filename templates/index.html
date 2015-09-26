@@ -47,6 +47,7 @@
 {% if DEPLOYMENT_TARGET == 'electron' %}
 <script type="text/javascript">
     window.$ = window.jQuery = require('./js/lib/jquery.js')
+	window.location.href='quotable/index.html';
 </script>
 {% else %}
 {{ JS.push('js/lib/jquery.js') }}
