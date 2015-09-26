@@ -12,10 +12,10 @@ function fetch_mark(callback) {
         dataType: 'xml'});
 }
 
-function generateMark() {
+function generateMark(n) {
     console.log($('.logo-wrapper'));
     $('.logo-wrapper').each(function (i, e) {
-        var mark = make_number_mark($('blockquote').text());
+        var mark = make_number_mark(n);
         if (mark) {
             $(this).replaceWith(mark);
         }

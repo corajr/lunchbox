@@ -5,7 +5,7 @@ var $themeButtons = null;
 var $aspectRatioButtons = null;
 var $quote = null;
 var $fontSize = null;
-var $show = null;
+var $wp_id = null;
 var $source = null;
 var $quote = null;
 var $logoWrapper = null;
@@ -43,8 +43,6 @@ function processText() {
         var rawText = $.trim($(this).html());
         $(this).html(smarten(rawText)).find('br').remove();
     });
-
-    generateMark();
 }
 
 function saveImage() {
@@ -102,7 +100,7 @@ var main = function() {
     $themeButtons = $('#theme .btn');
     $aspectRatioButtons = $('#aspect-ratio .btn');
     $fontSize = $('#fontsize');
-    $show = $('#show');
+    $wp_id = $('#wp-id');
     $source = $('.source');
     $showCredit = $('.show-credit');
     $quote = $('#quote');
@@ -115,6 +113,7 @@ var main = function() {
     $('blockquote p').text(quote.quote);
     $source.html('&mdash;&thinsp;' + quote.source);
     processText();
+    generateMark(0);
 
 
     $save.on('click', saveImage);
@@ -150,9 +149,9 @@ var main = function() {
         adjustFontSize($(this).val());
     });
 
-    $show.on('keyup', function() {
+    $wp_id.on('keyup', function() {
         var inputText = $(this).val();
-        $showCredit.text(inputText);
+        generateMark(inputText);
     });
 
     // // This event is interfering with the medium editor in some browsers
